@@ -1,0 +1,16 @@
+
+@media screen and (max-width:393px){
+    .nav_title{
+       display: none;
+    }
+   
+    .nav_mobile{
+        display: flex;
+    }
+    .nav_mleft{
+        margin-right: auto;
+    }
+    .nav_cn{
+        display: none;
+    }
+}

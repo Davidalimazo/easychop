@@ -1,0 +1,35 @@
+@media screen and (max-width:768px){
+    .form_con{
+        height: 90vh !important;
+        width: 60vw !important;
+        border-radius: 10px;
+        box-shadow: 1px 2px 2px 1px rgba(255, 255, 255, 0.2);
+    }
+    .rg_img{
+        display: none;
+    }
+    .rg_md{
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .rg_input{
+        width: 100%;
+    }
+}
+@media screen and (max-width:500px){
+    .form_con{
+        width: 90vw !important;
+    }
+}
+@media screen and (max-width:393px){
+    .form_con{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 90vw !important;
+        height: 100% !important;
+    }
+}
