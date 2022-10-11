@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 import './auth.css'
 
 const AuthDiv = styled(Box)((props)=>({
-  backgroundColor:props.theme.palette.primary.main,
+  backgroundColor:'#9a7b4f',
   height:'100vh',
   width:'100%',
   display:'flex',

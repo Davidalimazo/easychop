@@ -12,12 +12,13 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import PasswordIcon from '@mui/icons-material/Password';
+import GoogleIcon from "@mui/icons-material/Google";
 import { useState } from 'react'
 import { registerSchema } from './../../shema/registerSchema';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useFormik } from 'formik'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const LoginDiv = styled(Box)((props)=>({
@@ -30,11 +31,14 @@ const LoginDiv = styled(Box)((props)=>({
 
 export default function Register() {
 
+  const navigate = useNavigate()
+
   const [showPassword,setShowPassword] = useState(false);
 
   
   const onSubmit=async(e)=>{
-    console.log('submitted')
+    console.log('submitted');
+    //navigate('/todo')
  }
  
    const {
@@ -60,12 +64,12 @@ export default function Register() {
 
   return (
     <Stack direction='row'>
-      <Box sx={{width:'40vw', height:'100vh', xs:{height:'100%'}, overflow:'hidden', xs:{display:'none'}}} className='rg_img'>
+      <Box sx={{width:'40vw', height:{xs:'100%', sm:'100vh'}, overflow:'hidden', display:{xs:'none', sm:'block'}}} className='rg_img'>
         <img src={regBg} alt='' style={{objectFit:'cover', width:'100%', height:'100vh'}}/>
       </Box>
       <Box sx={{background:'white', width:'60vw', height:'100vh', display:'flex', alignItems:'center', justifyContent:'center'}} className='form_con'>
         <form onSubmit={handleSubmit}>
-        <Typography variant='h6' textTransform='uppercase' textAlign='center'>Register</Typography>
+        <Typography variant='h6' textTransform='uppercase' textAlign='center' sx={{mt:{xs:'20px', sm:'inherit'}}}>Register</Typography>
           <Stack direction='row' spacing={2} sx={{mt:5, mx:6}} className='rg_md'>
           <TextField label='First Name' className='rg_input' sx={{xs:{width:'100%', mb:'20px'}}} autoComplete='off' name='firstName' type='text' error={errors.firstName && true} helperText={errors.firstName} value={values.firstName} onChange={handleChange} fullWidth InputProps={{
             startAdornment:<InputAdornment position='start'><AccountCircleIcon/></InputAdornment>
@@ -102,10 +106,15 @@ export default function Register() {
             startAdornment:<InputAdornment position='start'><LocationOnIcon color='error'/></InputAdornment>
           }}/>
           </Stack>
-          <Stack sx={{mt:5, mx:6}}>
-          <Button type='submit' variant='contained' endIcon={<LoginIcon/>}>Login</Button>
-          </Stack>
-          <Stack sx={{mt:5, mx:6}}>
+          <Box sx={{display:'flex', gap:'1rem', mt:5, mx:6, justifyContent:'center', alignItems:'center'}}>
+          <Button type="submit" variant="contained" endIcon={<LoginIcon />}>
+            Register
+          </Button>
+          <Button type="submit" variant="contained" endIcon={<GoogleIcon />}>
+            Gmail
+          </Button>
+          </Box>
+          <Stack sx={{mt:2, mx:6, mb:2}}>
             <Typography textAlign='center'>Have an account? <Link style={{textTransform:'uppercase', textDecoration:'underline'}} to='/auth'>Login</Link></Typography>
           </Stack>
         </form>

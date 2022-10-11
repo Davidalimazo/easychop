@@ -1,6 +1,8 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Fallback from './pages/Fallback';
+import WhatWillLikeToDo from './pages/liketodo/WhatWillLikeToDo';
+import SelectStoreType from './pages/select/SelectStoreType';
 const Auth = React.lazy(()=>import('./components/Auth'))
 const Layout = React.lazy(()=>import('./components/Layout'))
 const Login = React.lazy(()=>import('./pages/login/Login'))
@@ -15,7 +17,9 @@ export default function App() {
     <div>
     <React.Suspense fallback={<Fallback/>}>
       <Routes>
-        <Route path='/' element={isAuth ?<Layout/> : <Navigate to='/auth'/>} />
+        <Route path='/' element={isAuth ?<WhatWillLikeToDo/>: <Navigate to='/auth'/>} />
+        <Route path='home' element={isAuth ?<Layout/> : <Navigate to='/auth'/>} />
+        <Route path='select' element={isAuth ?<SelectStoreType/> : <Navigate to='/auth'/>} />
         <Route path='auth' element={isAuth ?<Navigate to='/'/> : <Auth/>}>
           <Route index element={<Login/>} />
           <Route path='register' element={<Register/>} />
